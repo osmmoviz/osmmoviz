@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>profile checker</title>
+</head>
+
+<body onload="closeTabAfterDelay()">
+
+</body>
+
+<script>
+
+  
+  var value = localStorage.getItem("timestamp");
+  //console.log(value);
+  
+  var nextfalse = localStorage.getItem("nextfalse");
+  //console.log(nextfalse);
+  
+  var currentsite = localStorage.getItem("mov");
+  //console.log(currentsite);
+  
+  
+
+    //remove all resources in localstorage
+  localStorage.removeItem("timestamp");
+  localStorage.removeItem("mov");
+  localStorage.removeItem("nextfalse");
+  localStorage.removeItem("username");
+  
+  
+  
+  
+  
+  
+  if( value === "" ){
+    window.open(nextfalse, "_blank");
+  }else{
+  checkTimestamp();
+  };
+  
+  
+  function checkTimestamp() {
+     /* var urlParams = new URLSearchParams(window.location.search);
+      var timestamp = parseInt(urlParams.get('value'));*/
+
+      if (value && Date.now() - value <= 20000) {
+        //console.log("works");
+    //goto movie
+    window.open(currentsite , "_blank"); // Opens the link in a new tab
+         
+      } else {
+        window.open(nextfalse, "_blank");
+      }
+    };
+    
+    
+    
+    function closeTabAfterDelay() {
+  setTimeout(function() {
+    // Navigate to a blank page
+    window.close();
+  }, 5000); // 10,000 milliseconds = 10 seconds
+}
+
+  
+  
+
+  
+</script>
+
+</html>
