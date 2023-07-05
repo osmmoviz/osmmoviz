@@ -13,14 +13,13 @@
 </body>
 
 <script>
+  var timestamp = Date.now(); // Get current timestamp in milliseconds
   
-    var timestamp = Date.now(); // Get current timestamp in milliseconds
-    
-    localStorage.setItem("timestamp", timestamp);
+  localStorage.setItem("timestamp", timestamp);
   var currenttime = localStorage.getItem("timestamp");
   //console.log(currenttime);
-    
-  
+
+
 
   var currentuser = localStorage.getItem("username");
   //console.log(currentuser);
@@ -29,12 +28,12 @@
 
 
 
-  
-  
-  
+
+
+
   var currentUser = currentuser; // Replace with your actual value
 
-  
+
   fetch("https://api.jsonbin.io/v3/b/649abd74b89b1e2299b5e114")
     .then(function(response) {
       return response.json();
@@ -51,60 +50,47 @@
         //console.log("Reference: " + user.reference);
         userlink(user);
       } else {
-        userlink('none');
+        defaultuserlink()
       }
     })
-    
+
     .catch(function(error) {
       //console.log("Error fetching JSON: " + error);
     });
-    
-    
-    
 
 
 
 
-  function userlink(user){
-      var nextlink = user.reference;
-      //console.log(nextlink);
-      
-      var nextfalse = user.false;
-      localStorage.setItem("nextfalse", nextfalse);
-      
-      
-      
-      //window.location=nextlink;
-      //window.open( nextlink , "_blank");
-      window.location.href=nextlink;
+
+
+
+  function userlink(user) {
+    var nextlink = user.reference;
+    //console.log(nextlink);
+
+    var nextfalse = user.false;
+    localStorage.setItem("nextfalse", nextfalse);
+
+
+
+    //window.location=nextlink;
+    //window.open( nextlink , "_blank");
+    window.location.href = nextlink;
   }
 
 
 
 
-function defaultuserlink(){
-    var nextlink = "ankitcounter";
-      //console.log(nextlink);
-      
-      var nextfalse = "ankitfalselink";
-      localStorage.setItem("nextfalse", nextfalse);
-      //window.location=nextlink;
-      //window.open( nextlink , "_blank");
-      window.location.href=nextlink;
+  function defaultuserlink() {
+    var nextlink = "https://sites.google.com/view/osmmoviz-co/osmmoviz";
+    //console.log(nextlink);
+
+    var nextfalse = "https://sites.google.com/view/osmmoviz-co/osmmovizfalse";
+    localStorage.setItem("nextfalse", nextfalse);
+    //window.location=nextlink;
+    //window.open( nextlink , "_blank");
+    window.location.href = nextlink;
   };
-
-
-  
-
-
-
-  
-  
-  
-  
-  
-  
-  
 </script>
 
 </html>
