@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title></title>
+</head>
+
+<body>
+
+
+<h1>Searching...</h1>
+<p id="response" style="display:none;">your backink do not contain link to any movie</p>
+
+
+
+
+
+
+
+
+
+
+
+<script>
+  // Function to get the value of a parameter from the URL
+function getURLParameter(name) {
+  name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
+  var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
+  var results = regex.exec(location.search);
+  return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+}
+
+// Get the value from the 'val' parameter in the URL
+var userval = getURLParameter('value');
+var mov = getURLParameter('mov');
+
+
+
+
+if(mov===""){
+  document.getElementById("response").style.display="block";
+}else{
+  
+
+
+
+
+
+
+if (userval === "") {
+
+  //console.log("no");
+  localStorage.setItem("username", "ankit");
+  var currentuser = localStorage.getItem("username");
+ // console.log(currentuser);
+
+} else {
+
+  // set the value of the movieadmin in localstorage
+  localStorage.setItem("username", userval);
+  var currentuser = localStorage.getItem("username");
+  //console.log(currentuser);
+  
+
+
+}
+
+
+
+var nextlink= "https://sites.google.com/view/fgzgjzgkxxmh/"+mov;
+window.location.href=nextlink;
+
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+</body>
+
+</html>
