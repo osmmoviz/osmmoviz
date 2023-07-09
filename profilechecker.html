@@ -12,63 +12,63 @@
 </body>
 
 <script>
+  // Function to get the value of a parameter from the URL
+  function getURLParameter(name) {
+    name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
+    var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
+    var results = regex.exec(location.search);
+    return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+  }
 
-  
+  // Get the value from the 'nextfalse' parameter in the URL
+  var nextfalse = getURLParameter('nextfalse');
+
   var value = localStorage.getItem("timestamp");
   //console.log(value);
-  
-  var nextfalse = localStorage.getItem("nextfalse");
+
+  //var nextfalse = localStorage.getItem("nextfalse");
   //console.log(nextfalse);
-  
+
   var currentsite = localStorage.getItem("mov");
   //console.log(currentsite);
-  
-  
 
-    //remove all resources in localstorage
+
+
+  //remove all resources in localstorage
   localStorage.removeItem("timestamp");
   localStorage.removeItem("mov");
   localStorage.removeItem("nextfalse");
   localStorage.removeItem("username");
-  
-  
-  
-  
-  
-  
-  if( value === "" || value === null ){
-    if(nextfalse=== "" || nextfalse === null ){
+
+
+
+
+
+
+  if (value === "" || value === null) {
+    if (nextfalse === "" || nextfalse === null) {
       window.open("https://sites.google.com/view/faketrialco/faketrial_co", "_blank");
-    }else{
-    window.open(nextfalse, "_blank");
+    } else {
+      window.open(nextfalse, "_blank");
     }
-  }else{
-  checkTimestamp();
+  } else {
+    checkTimestamp();
   };
-  
-  
+
+
   function checkTimestamp() {
-     /* var urlParams = new URLSearchParams(window.location.search);
-      var timestamp = parseInt(urlParams.get('value'));*/
+    /* var urlParams = new URLSearchParams(window.location.search);
+     var timestamp = parseInt(urlParams.get('value'));*/
 
-      if (value && Date.now() - value <= 20000) {
-        //console.log("works");
-    //goto movie
-    window.open(currentsite , "_blank"); // Opens the link in a new tab
-         
-      } else {
-        window.open(nextfalse, "_blank");
-      }
-    };
-    
-    
-    
-    
+    if (value && Date.now() - value <= 20000) {
+      //console.log("works");
+      //goto movie
+      window.open(currentsite, "_blank"); // Opens the link in a new tab
 
-  
-  
-
-  
+    } else {
+      window.open(nextfalse, "_blank");
+    }
+  };
 </script>
 
 </html>
