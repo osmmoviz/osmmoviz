@@ -10,7 +10,7 @@
 <body>
 
 
-<h1>Searching...</h1>
+<h1 id="searchingtext">Searching|</h1>
 <p id="response" style="display:none;">your backink do not contain link to any movie</p>
 
 
@@ -24,6 +24,21 @@
 
 
 <script>
+function animateSearchingText() {
+  const loadingTextElement = document.getElementById("searchingtext");
+  const symbols = ['/', '-', '\\', '|'];
+  let symbolIndex = 0;
+
+  function updateText() {
+    loadingTextElement.textContent = "Searching" + " " + symbols[symbolIndex];
+    symbolIndex = (symbolIndex + 1) % symbols.length; // Cycle through the symbols array
+  }
+
+  setInterval(updateText, 250); // Update text every 250ms (0.25 seconds)
+}
+
+animateSearchingText();
+
   // Function to get the value of a parameter from the URL
 function getURLParameter(name) {
   name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
