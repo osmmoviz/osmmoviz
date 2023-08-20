@@ -7,11 +7,61 @@
   <title></title>
 </head>
 
+<style>
+  
+  body{
+    background-color: #000A1E ;
+  }
+  
+  #not_supported{
+    position: absolute;
+    top: 25px;
+    padding: 15px;
+    background-color: #f44336;
+    color: white;
+    border-radius: 4px;
+    max-width: 400px;
+    display: none;
+  }
+  
+  #not_supported h1{
+    color:white;
+    margin: 30px 10px;
+    font-size: 15px;
+  }
+  
+  #searchingtext{
+    color: white;
+  }
+  
+  #response{
+    color: white;
+  }
+  
+  
+  
+  
+</style>
+
+
 <body>
 
 
 <h1 id="searchingtext">Searching|</h1>
 <p id="response" style="display:none;">your backink do not contain link to any movie</p>
+
+
+
+
+
+
+<div id="not_supported">
+  
+  <h1>You are opening the website in INSTAGRAM browser </h1>
+  <h1>Open the link in CHROME</h1>
+  
+</div>
+
 
 
 
@@ -85,7 +135,13 @@ if (userval === "") {
 
 
 var nextlink= "https://www.osmmoviz.tech/"+mov;
-window.location.href=nextlink;
+//window.location.href=nextlink;
+window.open( nextlink , "_blank");
+
+
+
+
+
 
 
 
@@ -94,8 +150,15 @@ window.location.href=nextlink;
 
 
 
+setTimeout(function() {
+      document.getElementById("not_supported").style.display="block"
+    }, 2000); // 7 seconds in milliseconds
 
 
+
+setTimeout(function() {
+      window.close();
+    }, 7000); // 7 seconds in milliseconds
 
 
 
