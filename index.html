@@ -7,14 +7,66 @@
   <title></title>
 </head>
 
+<style>
+  *{
+    margin:0px;
+    padding:0px;
+  }
+  body{
+    background-color: #000A1E ;
+  }
+  #alternate{
+    background-color: red;
+    border: 4px solid orangered;
+    padding: 10px;
+    border-radius: 8px;
+    margin: 20px;
+    max-width: 600px;
+    display: none;
+    margin:auto;
+  }
+  
+  h1{
+    color: white;
+    margin: 20px;
+  }
+  p{
+    color:white;
+    margin: 10px;
+  }
+  h2{
+    color:white;
+    margin: 10px;
+  }
+  h3{
+    color:white;
+    margin: 15px;
+  }
+  
+  #response{
+    margin: 20px;
+  }
+  
+  
+  
+  
+</style>
+
+
+
 <body>
 
 
-<h1>Searching...</h1>
+<h1 id="loadingsText">Searching |</h1>
 <p id="response" style="display:none;">your backink do not contain link to any movie</p>
 
 
-
+<div id="alternate">
+  <h2>Browser Unsupported</h2>
+  <p>Looks like you are trying to open the website in INSTAGRAM browser that do not support multiple tab </p>
+  <h3>Open the link in CHROME</h3>
+  
+</div>
 
 
 
@@ -24,6 +76,44 @@
 
 
 <script>
+
+    function animateSearchingText() {
+      const loadingTextElement = document.getElementById("loadingsText");
+      const symbols = ['/', '-', '\\', '|'];
+      let symbolIndex = 0;
+      
+      function updateText() {
+        loadingTextElement.textContent = "Searching" + " " + symbols[symbolIndex];
+        symbolIndex = (symbolIndex + 1) % symbols.length; // Cycle through the symbols array
+      }
+
+      setInterval(updateText, 250); // Update text every 250ms (0.25 seconds)
+    }
+
+    animateSearchingText();
+
+
+
+
+
+
+if (navigator.userAgent.includes("Instagram")) {
+      document.getElementById("loadingsText").style.display="none";
+      document.getElementById("response").style.display="none";
+      document.getElementById("alternate").style.display="block";
+      
+    }
+
+
+
+
+
+
+
+
+
+
+
   // Function to get the value of a parameter from the URL
 function getURLParameter(name) {
   name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
