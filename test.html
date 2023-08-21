@@ -1,3 +1,30 @@
+<!--<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Browser Detection</title>
+</head>
+<body>
+  <div>
+    <h1>Browser Detection</h1>
+    <p id="browserStatus">Detecting...</p>
+  </div>
+  <script>
+    const browserStatusElement = document.getElementById("browserStatus");
+    const userAgent = navigator.userAgent.toLowerCase();
+
+    if (userAgent.includes("instagram")) {
+      browserStatusElement.textContent = "Opened in Instagram browser.";
+    } else if (userAgent.includes("chrome")) {
+      browserStatusElement.textContent = "Opened in Chrome browser.";
+    } else {
+      browserStatusElement.textContent = "Opened in an unknown browser.";
+    }
+  </script>
+</body>
+</html>
+-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,9 +34,10 @@
 </head>
 <body>
   <div>
-    <h1>Open iin Chrome</h1>
-    <p>Click the link below to open this page in Chrome.</p>
-    <a href="https://www.osmmoviz.tech/" target="_blank">Open in Chrome</a>
+    <h1>Open in Chrome</h1>
+    <p>If you're currently viewing this in the Instagram browser, you can try opening it in Chrome.</p>
+    <p>Click the link below to open this page in Chrome:</p>
+    <a href="chrome://navigate?url=https://www.osmmoviz.tech/" target="_blank">Open in Chrome</a>
   </div>
 </body>
 </html>
