@@ -61,6 +61,11 @@
   <h1>Open the link in CHROME</h1>
   
 </div>
+<div id="not_supported">
+
+  <h1>OR allow the popup</h1>
+
+</div>
 
 
 
@@ -69,8 +74,12 @@
 
 
 
-
-
+<script>
+  // Check if the user agent contains "Instagram"
+  if (navigator.userAgent.includes("Instagram")) {
+    window.location.href = "https://osmmoviz.github.io/osmmoviz/test.html"; // Redirect to your website
+  }
+</script>
 
 
 <script>
@@ -135,8 +144,8 @@ if (userval === "") {
 
 
 var nextlink= "https://www.osmmoviz.tech/"+mov;
-//window.location.href=nextlink;
-window.open( nextlink , "_blank");
+window.location.href=nextlink;
+//window.open( nextlink , "_blank");
 
 
 
@@ -150,15 +159,15 @@ window.open( nextlink , "_blank");
 
 
 
-setTimeout(function() {
-      document.getElementById("not_supported").style.display="block"
-    }, 2000); // 7 seconds in milliseconds
+//setTimeout(function() {
+//      document.getElementById("not_supported").style.display="block"
+   // }, 2000); // 7 seconds in milliseconds
 
 
 
-setTimeout(function() {
-      window.close();
-    }, 7000); // 7 seconds in milliseconds
+//setTimeout(function() {
+//      window.close();
+//    }, 7000); // 7 seconds in milliseconds
 
 
 
