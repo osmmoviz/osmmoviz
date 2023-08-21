@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Browser Detection</title>
+</head>
+<body>
+  <div>
+    <h1>Browser Detection</h1>
+    <p id="browserStatus">Detecting...</p>
+  </div>
+  <script>
+    const browserStatusElement = document.getElementById("browserStatus");
+    const userAgent = navigator.userAgent.toLowerCase();
+
+    if (userAgent.includes("instagram")) {
+      browserStatusElement.textContent = "Opened in Instagram browser.";
+    } else if (userAgent.includes("chrome")) {
+      browserStatusElement.textContent = "Opened in Chrome browser.";
+    } else {
+      browserStatusElement.textContent = "Opened in an unknown browser.";
+    }
+  </script>
+</body>
+</html>
